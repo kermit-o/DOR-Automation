@@ -17,4 +17,4 @@ echo "__pycache__/" >> .gitignore
 echo "*.pyc" >> .gitignore
 echo "instance/" >> .gitignore
 echo ".DS_Store" >> .gitignore
-
+venv
