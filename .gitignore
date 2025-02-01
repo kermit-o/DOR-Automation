@@ -3,3 +3,18 @@ __pycache__/
 *.pyo
 .env
 *.sqlite3
+echo "venv/" >> .gitignore
+echo "DORProject/venv/" >> .gitignore
+echo "__pycache__/" >> .gitignore
+echo "*.pyc" >> .gitignore
+echo "instance/" >> .gitignore
+echo ".DS_Store" >> .gitignore
+*.io
+*.zip
+echo "venv/" >> .gitignore
+echo "DORProject/venv/" >> .gitignore
+echo "__pycache__/" >> .gitignore
+echo "*.pyc" >> .gitignore
+echo "instance/" >> .gitignore
+echo ".DS_Store" >> .gitignore
+
