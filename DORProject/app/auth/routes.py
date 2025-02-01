@@ -29,6 +29,11 @@ def register():
         password = request.form.get('password')
         hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
 
+        # Verificar si el usuario ya existe
+        user = User.query.filter_by(email=email).first()
+        if user:
+            flash('El correo electrónico ya está registrado.', 'error')
+            return redirect(url_for('auth.register'))
 
         new_user = User(username=username, email=email, password=hashed_password)
         db.session.add(new_user)

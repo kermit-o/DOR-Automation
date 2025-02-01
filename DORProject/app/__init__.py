@@ -1,6 +1,5 @@
 from flask import Flask
 from .extensions import db, login
-from .models import User  # Importar el modelo User para el user_loader
 from .routes.routes import main
 from .auth.routes import auth
 from flask_migrate import Migrate
@@ -19,6 +18,7 @@ def create_app():
     # Configurar el user_loader
     @login.user_loader
     def load_user(user_id):
+        from .models import User
         return User.query.get(int(user_id))
 
     login.login_view = "auth.login"  # Redirige a login si el usuario no está autenticado

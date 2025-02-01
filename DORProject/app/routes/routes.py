@@ -74,6 +74,12 @@ def delete_file(filename):
 @login_required
 @main.route('/upload', methods=['GET','POST'])
 def upload_dor_file():
+    if request.method == 'GET':
+        if not current_user.is_authenticated:
+            return redirect(url_for('auth.login'))
+        return render_template('upload.html')  # Retorna la plantilla si es un GET
+
+    # Manejo de la subida de archivos si es un POST
     return handle_file_upload(request, UPLOAD_FOLDER, PUBLIC_FOLDER)
 
 @login_required
