@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Saved reports{% endblock %}
+
+{% block content %}
+    <h1>Saved Reports</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Filename</th>
+            <th>Upload Date</th>
+        </tr>
+        {% for report in reports %}
+        <tr>
+            <td>{{ report.id }}</td>
+            <td>{{ report.filename }}</td>
+            <td>{{ report.upload_date }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock %}

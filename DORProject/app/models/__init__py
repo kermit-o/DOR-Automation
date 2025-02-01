@@ -1,0 +1,8 @@
+# Archivo: models/__init__.py
+# Este archivo inicializa el paquete models y define las funciones principales de inicialización de la base de datos.
+from .dor_report import DORReport
+from .template_file import TemplateFile
+
+def create_tables(db):
+    """Crea las tablas en la base de datos."""
+    db.create_all()

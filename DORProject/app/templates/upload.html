@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Upload DOR Files{% endblock %}
+
+{% block content %}
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="upload-container" id="upload-container">
+            <h1>Upload DOR Files</h1>
+            <form action="{{ url_for('main.upload_dor_file') }}" method="post" enctype="multipart/form-data">
+                <label for="template_file">Select Template File:</label>
+                <input type="file" name="template_file" id="template_file" required>
+                <br>
+                <label for="data_files">Select Data Files:</label>
+                <input type="file" name="data_files" id="data_files" multiple required>
+                <br>
+                <input type="submit" value="Upload Files" class="btn btn-primary mt-3">
+            </form>
+            <a class="back-link btn btn-secondary mt-3" href="{{ url_for('main.index') }}">Back to Home</a>
+            <p class="mt-3">Supported formats: .xlsx, .xlsm, .csv, .pdf</p>
+        </div>
+    </div>
+
+    <script>
+        const uploadContainer = document.getElementById('upload-container');
+
+        uploadContainer.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadContainer.classList.add('dragover');
+        });
+
+        uploadContainer.addEventListener('dragleave', () => {
+            uploadContainer.classList.remove('dragover');
+        });
+
+        uploadContainer.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadContainer.classList.remove('dragover');
+
+            const fileInput = document.getElementById('file');
+            fileInput.files = e.dataTransfer.files;
+        });
+    </script>
+{% endblock %}

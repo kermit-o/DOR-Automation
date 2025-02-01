@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Upload DOR Files{% endblock %}
+
+{% block content %}
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="upload-container" id="upload-container">
+    <h1>Register</h1>
+    <form method="POST">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit" class="btn btn-primary mt-3">Register</button>
+    </form>
+        </div>
+    </div>
+{% endblock %}
